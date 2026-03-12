@@ -12,46 +12,106 @@
 <div class="container">
 
 	<div class="sidebar">
-        <h2 class="logo"></h2>
+        <h2 class="logo">
+            <img src="../images/logo.png" alt="Weather Logo">
+        </h2>
 		<ul>
-			<li><a href="#">Weather</a></li>
-			<li><a href="#">Cities</a></li>
-			<li><a href="#">Settings</a></li>
+			<li><a href="#">
+                <img class="icon" src="../images/weather.png" alt="Weather Icon">
+                Weather
+            </a>
+            </li>
+			<li><a href="#">
+                <img class="icon" src="../images/cities.png" alt="Cities Icon">
+                Cities
+            </a>
+            </li>
+			<li><a href="#">
+                <img class="icon" src="../images/setting.png" alt="Settings Icon">
+                Settings
+            </a>
+            </li>
 		</ul>
 	</div>
 
-	<div class="main">
+	<div class="main" id="dashboard">
 		<div class="search-bar">
-        <input type="text" placeholder="Search station or city">
+        <input id="searchBar" type="text" placeholder="Search station or city">
         </div>
 
-        <div class="current-weather">
+        <div class="current-weather" id="weather-data">
             <div class="weather-info">
-                <h2>Location</h2>
-                <h1 id="main_temp">__ C</h1>
+                <h2 id="location">Location</h2>
+                <h1 id="main_temp">__ °C</h1>
             </div>
 
-            <div class="weather-icon">
-                <img id="weather_icon" src="../static/default.png" alt="Weather Icon">
+            <div class="weather-icon" id="weather-icon-container">
+                <img id="weather_icon" src="../images/sunny.png" alt="Weather Icon">
             </div>
+        </div>
+
+        <div class="forecast">
+
+            <div class="forecast-day">
+                <p>Mon</p>
+                <img src="../images/sunny.png">
+                <p>__°C</p>
+            </div>
+
+            <div class="forecast-day">
+                <p>Tue</p>
+                <img src="../images/mix_weather.png">
+                <p>__°C</p>
+            </div>
+
+            <div class="forecast-day">
+                <p>Wed</p>
+                <img src="../images/storm.png">
+                <p>__°C</p>
+            </div>
+
+            <div class="forecast-day">
+                <p>Thu</p>
+                <img src="../images/mix_weather.png">
+                <p>__°C</p>
+            </div>
+
+            <div class="forecast-day">
+                <p>Fri</p>
+                <img src="../images/sunny.png">
+                <p>__°C</p>
+            </div>
+
+            <div class="forecast-day">
+                <p>Sat</p>
+                <img src="../images/mix_weather.png">
+                <p>__°C</p>
+            </div>
+
+            <div class="forecast-day">
+                <p>Sun</p>
+                <img src="../images/storm.png">
+                <p>__°C</p>
+            </div>
+
         </div>
 
         <div class="sensor-cards">
 
-            <div class="card">
-                <img src="../static/icons/temperature.png" class="icon">
+            <div class="card" data-sensor="temperature">
+                <img src="../images/temperature.png" class="sensor">
                 <h2>Temperature</h2>
-                <p id="temperature">__ C</p>
+                <p id="temperature">__ °C</p>
             </div>
 
-            <div class="card">
-                <img src="../static/icons/humidity.png" class="icon">
+            <div class="card" data-sensor="humidity">
+                <img src="../images/humidity.png" class="sensor">
                 <h2>Humidity</h2>
                 <p id="humidity">__ %</p>
             </div>
 
-            <div class="card">
-                <img src="../static/icons/pressure.png" class="icon">
+            <div class="card" data-sensor="pressure">
+                <img src="../images/pressure.png" class="sensor">
                 <h2>Pressure</h2>
                 <p id="pressure">__ hPa</p>
             </div>
