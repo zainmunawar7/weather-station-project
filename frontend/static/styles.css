@@ -1,5 +1,148 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background: #d5d5ec;
+    color:white;
+    height:100px;
+}
+
+.container{
+    display:flex;
+    height:100vh;
+}
+
 .sidebar{
-    background: red;
-    width: 200px;
-    height: 200px;
+    width:100px;
+    background: #17274c;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:30px;
+}
+
+.logo{
+    font-size:28px;
+    margin-bottom:40px;
+}
+
+.sidebar ul{
+    list-style:none;
+    width:100%;
+    text-align:center;
+}
+
+.sidebar ul li{
+    margin:50px 0;
+}
+
+.sidebar ul li a{
+    text-decoration:none;
+    color:#9ca3af;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.sidebar ul li a:hover{
+    color:white;
+}
+
+.main{
+    flex:1;
+    padding:35px;
+    display:flex;
+    flex-direction:column;
+}
+
+.header{
+    margin-bottom:30px;
+}
+
+.header h1{
+    font-size:28px;
+    font-weight:600;
+}
+
+.current-weather{
+    background:#111827;
+    border-radius:16px;
+    padding:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.weather-info h2{
+    color:#9ca3af;
+    font-size:18px;
+}
+
+.weather-info h1{
+    font-size:65px;
+    font-weight:700;
+    margin-top:10px;
+}
+
+.weather-icon img{
+    width:90px;
+    height:90px;
+}
+
+.sensor-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#111827;
+    border-radius:14px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    font-size:18px;
+    color:#9ca3af;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.icon{
+    width:35px;
+    margin-bottom:10px;
+    opacity:0.8;
+}
+
+@media(max-width:900px){
+
+    .sensor-cards{
+        grid-template-columns:1fr;
+    }
+
+    .current-weather{
+        flex-direction:column;
+        gap:20px;
+        text-align:center;
+    }
+
+    .weather-info h1{
+        font-size:50px;
+    }
 }

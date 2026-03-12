@@ -6,11 +6,13 @@
 	<title>Weather Monitoring System</title>
 	<link rel="stylesheet" href="../static/styles.css">
 </head>
+
 <body>
 
 <div class="container">
 
 	<div class="sidebar">
+        <h2 class="logo"></h2>
 		<ul>
 			<li><a href="#">Weather</a></li>
 			<li><a href="#">Cities</a></li>
@@ -19,30 +21,37 @@
 	</div>
 
 	<div class="main">
-		<div class="header">
-			<h1>Weather Monitoring System</h1>
-		</div>
+		<div class="search-bar">
+        <input type="text" placeholder="Search station or city">
+        </div>
 
         <div class="current-weather">
-            <div>
+            <div class="weather-info">
                 <h2>Location</h2>
                 <h1 id="main_temp">__ C</h1>
+            </div>
+
+            <div class="weather-icon">
+                <img id="weather_icon" src="../static/default.png" alt="Weather Icon">
             </div>
         </div>
 
         <div class="sensor-cards">
 
             <div class="card">
+                <img src="../static/icons/temperature.png" class="icon">
                 <h2>Temperature</h2>
                 <p id="temperature">__ C</p>
             </div>
 
             <div class="card">
+                <img src="../static/icons/humidity.png" class="icon">
                 <h2>Humidity</h2>
                 <p id="humidity">__ %</p>
             </div>
 
             <div class="card">
+                <img src="../static/icons/pressure.png" class="icon">
                 <h2>Pressure</h2>
                 <p id="pressure">__ hPa</p>
             </div>
