@@ -37,18 +37,27 @@
 	<div class="main" id="dashboard">
 		<div class="search-bar">
             <label for="searchBar"></label>
-            <input id="searchBar" type="text" placeholder="Search station or city">
+            <input id="searchBar" type="text" placeholder="Search city">
         </div>
 
         <div class="current-weather" id="weather-data">
             <div class="weather-info">
                 <h2 id="location">Location</h2>
                 <h1 id="main_temp">__ °C</h1>
+                <p id="weather_status">Sunny</p>
+                <p id="feels_like">Feels like __ °C</p>
             </div>
 
             <div class="weather-icon" id="weather-icon-container">
                 <img id="weather_icon" src="../images/sunny.png" alt="Weather Icon">
             </div>
+        </div>
+
+
+        <div class="hourly-forecast">
+
+            <div class="hour-row" id="hour-container"></div>
+
         </div>
 
         <div class="forecast">
