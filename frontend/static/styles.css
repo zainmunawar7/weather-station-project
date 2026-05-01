@@ -8,7 +8,7 @@
 body{
     background: #d5d5ec;
     color: white;
-    height: 100px;
+    height: 100vh;
 }
 
 .search-bar{
@@ -35,7 +35,7 @@ body{
 
 .container{
     display: flex;
-    min-height: 100px;
+    min-height: 100vh;
 }
 
 .sidebar{
@@ -138,18 +138,69 @@ body{
     margin-top: 10px;
 }
 
+#weather_status{
+    font-size: 20px;
+    margin-top: 8px;
+}
+
+#feels_like{
+    color: #9ca3af;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
 .weather-icon img{
     width: 150px;
     height: 150px;
     margin-right: 20px;
 }
 
+.hourly-forecast{
+    background:#17274c;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.hour-row{
+    display:flex;
+    gap:15px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.hour-card{
+    flex-shrink: 0;
+    min-width: 95px;
+    background:#22345f;
+    border-radius:14px;
+    padding:15px;
+    text-align:center;
+}
+
+.hour-card img{
+    width:35px;
+    height:35px;
+    margin:10px 0;
+}
+
+.hour-card p{
+    color:#9ca3af;
+    font-size:14px;
+}
+
+.hour-card span{
+    font-size:18px;
+    font-weight:bold;
+}
+
 .forecast{
-    display: flex;
-    gap: 120px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 20px;
     background: #17274c;
-    padding: 20px;
+    padding: 25px;
     border-radius: 18px;
     margin-bottom: 30px;
     box-shadow:0 10px 25px rgba(0,0,0,0.25);
@@ -177,7 +228,7 @@ body{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 25px;
-    margin-top: 10px;
+    margin: 10px 0 30px 0;
 }
 
 .card{
