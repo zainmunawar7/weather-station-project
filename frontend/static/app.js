@@ -7,17 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const weatherBtn = document.getElementById("weatherBtn");
     const searchBar = document.getElementById("searchBar");
 
-    // -----------------------------
-    // SETTINGS ELEMENTS
-    // -----------------------------
     const settingsBtn = document.getElementById("settingsBtn");
     const settingsPanel = document.getElementById("settingsPanel");
     const closeSettings = document.getElementById("closeSettings");
     const themeToggle = document.getElementById("themeToggle");
 
-    // -----------------------------
-    // GLOBAL STATE
-    // -----------------------------
     let currentCity = {
         name: "London",
         temp: "21°C",
@@ -25,9 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         feels: "19°C"
     };
 
-    // -----------------------------
-    // UPDATE UI FUNCTION
-    // -----------------------------
     function updateWeather(city) {
         document.getElementById("location").innerText = city.name;
         document.getElementById("main_temp").innerText = city.temp;
@@ -38,22 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
         currentCity = city;
     }
 
-    // -----------------------------
-    // INITIAL LOAD
-    // -----------------------------
     updateWeather(currentCity);
 
-    // -----------------------------
-    // OPEN SIDEBAR
-    // -----------------------------
     openBtn.onclick = function (e) {
         e.preventDefault();
         citySidebar.classList.add("active");
     };
 
-    // -----------------------------
-    // CLOSE SIDEBAR
-    // -----------------------------
     closeBtn.onclick = function () {
         citySidebar.classList.remove("active");
 
@@ -64,9 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
         cityResults.innerHTML = "";
     };
 
-    // -----------------------------
-    // CITY DATA
-    // -----------------------------
     const cityGroups = {
         saved: [
             { name: "London", temp: "21°C", status: "Sunny", feels: "19°C" },
@@ -85,9 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ]
     };
 
-    // -----------------------------
-    // SIDEBAR MENU CLICK
-    // -----------------------------
     document.querySelectorAll(".menu-option").forEach(option => {
 
         option.onclick = function () {
@@ -123,17 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     });
 
-    // -----------------------------
-    // WEATHER BUTTON
-    // -----------------------------
     weatherBtn.onclick = function (e) {
         e.preventDefault();
         updateWeather(currentCity);
     };
 
-    // -----------------------------
-    // SEARCH
-    // -----------------------------
     searchBar.addEventListener("keydown", function (e) {
 
         if (e.key === "Enter") {
@@ -150,10 +120,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // -----------------------------
-    // SETTINGS PANEL (NEW)
-    // -----------------------------
-
     if (settingsBtn) {
         settingsBtn.onclick = function (e) {
             e.preventDefault();
@@ -168,8 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (themeToggle) {
-
-        // load saved theme
         if (localStorage.getItem("theme") === "dark") {
             document.body.classList.add("dark");
         }
