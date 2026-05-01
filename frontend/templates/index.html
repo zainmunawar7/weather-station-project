@@ -16,23 +16,48 @@
             <img src="../images/logo.png" alt="Weather Logo">
         </h2>
 		<ul>
-			<li><a href="#">
+			<li><a href="#" id="weatherBtn">
                 <img class="icon" src="../images/weather.png" alt="Weather Icon">
                 Weather
             </a>
             </li>
-			<li><a href="#">
+			<li><a href="#" id="openCities">
                 <img class="icon" src="../images/cities.png" alt="Cities Icon">
                 Cities
             </a>
             </li>
-			<li><a href="#">
+			<li><a href="#" id="settingsBtn">
                 <img class="icon" src="../images/setting.png" alt="Settings Icon">
                 Settings
             </a>
             </li>
 		</ul>
 	</div>
+
+    <div class="city-sidebar" id="citySidebar">
+
+    <div class="city-header">
+        <h3>Cities</h3>
+        <button id="closeCities">✕</button>
+    </div>
+
+    <input type="text" placeholder="Search city..." class="city-search">
+
+    <div class="city-section">
+        <h4 class="menu-option" data-group="saved">Saved Cities</h4>
+    </div>
+
+    <div class="city-section">
+        <h4 class="menu-option" data-group="popular">Popular Cities</h4>
+    </div>
+
+    <div class="city-section">
+        <h4 class="menu-option" data-group="recent">Recent</h4>
+    </div>
+
+    <div id="cityResults"></div>
+
+</div>
 
 	<div class="main" id="dashboard">
 		<div class="search-bar">
@@ -129,5 +154,17 @@
         </div>
 	</div>
 </div>
+
+<div class="settings-panel" id="settingsPanel">
+    <div class="settings-content">
+        <h2>Settings</h2>
+
+        <button id="themeToggle">Toggle Dark/Light Mode</button>
+
+        <button id="closeSettings">Close</button>
+    </div>
+</div>
+
+<script src="../static/app.js"></script>
 </body>
 </html>
