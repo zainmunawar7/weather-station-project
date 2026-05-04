@@ -1,66 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Weather Monitoring System</title>
-	<link rel="stylesheet" href="../static/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring System</title>
+    <link rel="stylesheet" href="../static/styles.css">
 </head>
 
 <body>
 
 <div class="container">
 
-	<div class="sidebar">
+    <div class="sidebar">
         <h2 class="logo">
             <img src="../images/logo.png" alt="Weather Logo">
         </h2>
-		<ul>
-			<li><a href="#" id="weatherBtn">
+        <ul>
+            <li><a href="#" id="weatherBtn">
                 <img class="icon" src="../images/weather.png" alt="Weather Icon">
                 Weather
-            </a>
-            </li>
-			<li><a href="#" id="openCities">
+            </a></li>
+            <li><a href="#" id="openCities">
                 <img class="icon" src="../images/cities.png" alt="Cities Icon">
                 Cities
-            </a>
-            </li>
-			<li><a href="#" id="settingsBtn">
+            </a></li>
+            <li><a href="#" id="settingsBtn">
                 <img class="icon" src="../images/setting.png" alt="Settings Icon">
                 Settings
-            </a>
-            </li>
-		</ul>
-	</div>
+            </a></li>
+        </ul>
+    </div>
 
     <div class="city-sidebar" id="citySidebar">
+        <div class="city-header">
+            <div class="city-header-left">
+                <button id="backBtn" class="back-btn" style="display:none;">&#8592;</button>
+                <h3>Cities</h3>
+            </div>
+            <button id="closeCities">✕</button>
+        </div>
 
-    <div class="city-header">
-        <h3>Cities</h3>
-        <button id="closeCities">✕</button>
+        <div class="city-section">
+            <h4 class="menu-option" data-group="saved">Saved Cities</h4>
+        </div>
+
+        <div class="city-section">
+            <h4 class="menu-option" data-group="popular">Popular Cities</h4>
+        </div>
+
+        <div class="city-section">
+            <h4 class="menu-option" data-group="recent">Recent</h4>
+        </div>
+
+        <div id="cityResults"></div>
     </div>
 
-    <input type="text" placeholder="Search city..." class="city-search">
-
-    <div class="city-section">
-        <h4 class="menu-option" data-group="saved">Saved Cities</h4>
-    </div>
-
-    <div class="city-section">
-        <h4 class="menu-option" data-group="popular">Popular Cities</h4>
-    </div>
-
-    <div class="city-section">
-        <h4 class="menu-option" data-group="recent">Recent</h4>
-    </div>
-
-    <div id="cityResults"></div>
-
-</div>
-
-	<div class="main" id="dashboard">
-		<div class="search-bar">
+    <div class="main" id="dashboard">
+        <div class="search-bar">
             <label for="searchBar"></label>
             <input id="searchBar" type="text" placeholder="Search city">
         </div>
@@ -73,94 +69,80 @@
                 <p id="feels_like">Feels like __ °C</p>
             </div>
 
-            <div class="weather-icon" id="weather-icon-container">
-                <img id="weather_icon" src="../images/sunny.png" alt="Weather Icon">
+            <div class="weather-right">
+                <button id="saveBtn" class="save-btn">☆</button>
+                <div class="weather-icon" id="weather-icon-container">
+                    <img id="weather_icon" src="../images/sunny.png" alt="Weather Icon">
+                </div>
             </div>
         </div>
 
-
         <div class="hourly-forecast">
-
             <div class="hour-row" id="hour-container"></div>
-
         </div>
 
         <div class="forecast">
-
             <div class="forecast-day">
-                <p>Mon</p>
-                <img src="../images/sunny.png" alt="Sunny Icon">
-                <p>__°C</p>
+                <p class="day-name">Mon</p>
+                <img class="day-icon" src="../images/sunny.png" alt="Weather Icon">
+                <p class="day-temp">__°C</p>
             </div>
-
             <div class="forecast-day">
-                <p>Tue</p>
-                <img src="../images/mix_weather.png" alt="Mix weather">
-                <p>__°C</p>
+                <p class="day-name">Tue</p>
+                <img class="day-icon" src="../images/mix_weather.png" alt="Weather Icon">
+                <p class="day-temp">__°C</p>
             </div>
-
             <div class="forecast-day">
-                <p>Wed</p>
-                <img src="../images/storm.png" alt="Storm">
-                <p>__°C</p>
+                <p class="day-name">Wed</p>
+                <img class="day-icon" src="../images/storm.png" alt="Weather Icon">
+                <p class="day-temp">__°C</p>
             </div>
-
             <div class="forecast-day">
-                <p>Thu</p>
-                <img src="../images/mix_weather.png" alt="Mix weather">
-                <p>__°C</p>
+                <p class="day-name">Thu</p>
+                <img class="day-icon" src="../images/mix_weather.png" alt="Weather Icon">
+                <p class="day-temp">__°C</p>
             </div>
-
             <div class="forecast-day">
-                <p>Fri</p>
-                <img src="../images/sunny.png" alt="Sunny">
-                <p>__°C</p>
+                <p class="day-name">Fri</p>
+                <img class="day-icon" src="../images/sunny.png" alt="Weather Icon">
+                <p class="day-temp">__°C</p>
             </div>
-
             <div class="forecast-day">
-                <p>Sat</p>
-                <img src="../images/mix_weather.png" alt="Mix weather">
-                <p>__°C</p>
+                <p class="day-name">Sat</p>
+                <img class="day-icon" src="../images/mix_weather.png" alt="Weather Icon">
+                <p class="day-temp">__°C</p>
             </div>
-
             <div class="forecast-day">
-                <p>Sun</p>
-                <img src="../images/storm.png" alt="Storm">
-                <p>__°C</p>
+                <p class="day-name">Sun</p>
+                <img class="day-icon" src="../images/storm.png" alt="Weather Icon">
+                <p class="day-temp">__°C</p>
             </div>
-
         </div>
 
         <div class="sensor-cards">
-
             <div class="card" data-sensor="temperature">
                 <img src="../images/temperature.png" class="sensor" alt="Temperature">
                 <h2>Temperature</h2>
                 <p id="temperature">__ °C</p>
             </div>
-
             <div class="card" data-sensor="humidity">
                 <img src="../images/humidity.png" class="sensor" alt="Humidity">
                 <h2>Humidity</h2>
                 <p id="humidity">__ %</p>
             </div>
-
             <div class="card" data-sensor="pressure">
                 <img src="../images/pressure.png" class="sensor" alt="Pressure">
                 <h2>Pressure</h2>
                 <p id="pressure">__ hPa</p>
             </div>
-
         </div>
-	</div>
+    </div>
 </div>
 
 <div class="settings-panel" id="settingsPanel">
     <div class="settings-content">
         <h2>Settings</h2>
-
         <button id="themeToggle">Toggle Dark/Light Mode</button>
-
         <button id="closeSettings">Close</button>
     </div>
 </div>

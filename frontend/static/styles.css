@@ -58,7 +58,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position; relative;
+    position: relative;
     z-index: 999;
     padding-top: 30px;
     margin: 20px 10px;
@@ -111,7 +111,7 @@ body{
 .city-sidebar{
     position: fixed;
     top: 20px;
-    left: 90px;              /* starts partly behind first sidebar */
+    left: 90px;
     width: 300px;
     height: calc(100vh - 40px);
     background: rgba(23,39,76,0.85);
@@ -130,59 +130,79 @@ body{
 }
 
 .city-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.city-header-left{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.back-btn{
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.back-btn:hover{
+    opacity: 0.7;
 }
 
 .city-header button{
-    background:none;
-    border:none;
+    background: none;
+    border: none;
     color: var(--text);
-    font-size:22px;
-    cursor:pointer;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .city-search{
-    width:100%;
-    padding:10px;
-    border:none;
-    border-radius:8px;
-    margin-bottom:20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .city-section{
-    margin-bottom:25px;
+    margin-bottom: 25px;
 }
 
 .city-section h4{
-    margin-bottom:10px;
-    color:#aaa;
+    margin-bottom: 10px;
+    color: #aaa;
 }
 
 .city-item{
-    padding:10px;
-    margin-bottom:8px;
-    background:#2c2c2c;
-    border-radius:8px;
-    cursor:pointer;
-    transition:0.2s;
+    padding: 10px;
+    margin-bottom: 8px;
+    background: #2c2c2c;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .city-item:hover{
-    background:#444;
+    background: #444;
 }
 
 .menu-option{
-    cursor:pointer;
-    padding:8px;
-    border-radius:8px;
-    transition:0.2s;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: 0.2s;
 }
 
 .menu-option:hover{
-    background:#2c2c2c;
+    background: #2c2c2c;
 }
 
 .main{
@@ -242,50 +262,106 @@ body{
     margin-top: 6px;
 }
 
+.weather-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.save-btn{
+    background: none;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: var(--text);
+    font-size: 24px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.save-btn:hover{
+    background: rgba(255,255,255,0.15);
+    border-color: white;
+}
+
 .weather-icon img{
     width: 150px;
     height: 150px;
-    margin-right: 20px;
 }
 
 .hourly-forecast{
     background: var(--card);
-    border-radius:18px;
-    padding:25px;
-    margin-bottom:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 .hour-row{
-    display:flex;
-    gap:15px;
+    display: flex;
+    gap: 15px;
     overflow-x: auto;
     padding-bottom: 10px;
+    justify-content: space-between;
 }
 
 .hour-card{
     flex-shrink: 0;
     min-width: 95px;
     background: var(--card);
-    border-radius:14px;
-    padding:15px;
-    text-align:center;
+    border-radius: 14px;
+    padding: 15px;
+    text-align: center;
 }
 
 .hour-card img{
-    width:35px;
-    height:35px;
-    margin:10px 0;
+    width: 35px;
+    height: 35px;
+    margin: 10px 0;
 }
 
 .hour-card p{
     color: var(--muted);
-    font-size:14px;
+    font-size: 14px;
 }
 
 .hour-card span{
-    font-size:18px;
-    font-weight:bold;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hour-item{
+    flex-shrink: 0;
+    min-width: 95px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.hour-time{
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.hour-icon{
+    width: 35px;
+    height: 35px;
+}
+
+.hour-temp{
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--text);
 }
 
 .forecast{
@@ -296,7 +372,7 @@ body{
     padding: 25px;
     border-radius: 18px;
     margin-bottom: 30px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
 .forecast-day{
@@ -326,38 +402,38 @@ body{
 
 .card{
     background: var(--card);
-    border-radius:18px;
-    padding:25px;
-    text-align:center;
-    box-shadow:0 10px 20px rgba(0,0,0,0.25);
-    transition:0.3s;
+    border-radius: 18px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    transition: 0.3s;
 }
 
 .card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 35px rgba(0,0,0,0.35);
+    transform: translateY(-6px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.35);
 }
 
 .card h2{
-    font-size:18px;
+    font-size: 18px;
     color: var(--muted);
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
 .card p{
-    font-size:30px;
-    font-weight:bold;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .sensor{
-    width:40px;
-    height:40px;
-    object-fit:contain;
-    display:block;
-    margin:0 auto 15px auto;
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px auto;
 }
 
-.settings-panel {
+.settings-panel{
     position: fixed;
     top: 0;
     right: -100%;
@@ -369,15 +445,15 @@ body{
     z-index: 1000;
 }
 
-.settings-panel.active {
+.settings-panel.active{
     right: 0;
 }
 
-.settings-content h2 {
+.settings-content h2{
     margin-bottom: 20px;
 }
 
-.settings-content button {
+.settings-content button{
     display: block;
     margin: 10px 0;
     padding: 10px;
@@ -387,18 +463,17 @@ body{
 }
 
 @media(max-width:900px){
-
     .sensor-cards{
-        grid-template-columns:1fr;
+        grid-template-columns: 1fr;
     }
 
     .current-weather{
-        flex-direction:column;
-        gap:20px;
-        text-align:center;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
     }
 
     .weather-info h1{
-        font-size:50px;
+        font-size: 50px;
     }
 }

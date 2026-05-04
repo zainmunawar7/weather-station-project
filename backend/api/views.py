@@ -73,6 +73,7 @@ def get_city_weather(request, city):
             'humidity': data['main']['humidity'],
             'pressure': data['main']['pressure'],
             'description': data['weather'][0]['description'],
+            'timezone': data['timezone'],
         })
 
     except Exception as e:
@@ -108,6 +109,7 @@ def get_city_forecast(request, city):
         return JsonResponse({
             'city': data['city']['name'],
             'country': data['city']['country'],
+            'timezone': data['city']['timezone'],
             'forecasts': forecasts
         })
 
