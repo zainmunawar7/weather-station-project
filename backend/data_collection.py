@@ -1,12 +1,15 @@
 import smbus2
 import bme280
 import time
+import csv
+import os
+from datetime import datetime
 
 # -------------------------
 # SENSOR CONFIGURATION
 # -------------------------
 PORT = 1
-ADDRESS = 0x76  # change to 0x77 if i2cdetect shows 77
+ADDRESS = 0x76
 
 # -------------------------
 # INITIALISE SENSOR
@@ -14,13 +17,21 @@ ADDRESS = 0x76  # change to 0x77 if i2cdetect shows 77
 bus = smbus2.SMBus(PORT)
 calibration_params = bme280.load_calibration_params(bus, ADDRESS)
 
+# -------------------------
+# CSV FILE PATH
+# -------------------------
+CSV_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'weather_data.csv')
+
+# -------------------------
+# CREATE CSV IF NOT EXISTS
+# -------------------------
+if not os.path.exists(CSV_FILE):
+    with open(CSV_FILE, mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['timestamp', 'temperature', 'humidity', 'pressure'])
+
 
 def read_sensor():
-    """
-    Reads temperature, humidity, and pressure from BME280 sensor.
-    Returns:
-        dict: sensor readings or None if error occurs or data is invalid
-    """
     try:
         data = bme280.sample(bus, ADDRESS, calibration_params)
 
@@ -28,9 +39,6 @@ def read_sensor():
         humidity = round(data.humidity, 2)
         pressure = round(data.pressure, 2)
 
-        # -------------------------
-        # VALIDATE SENSOR READINGS
-        # -------------------------
         if not (-40 <= temperature <= 85):
             print("[Validation Error] Temperature out of range:", temperature)
             return None
@@ -44,14 +52,29 @@ def read_sensor():
             return None
 
         return {
-            "temperature": temperature,
-            "humidity": humidity,
-            "pressure": pressure
+            'temperature': temperature,
+            'humidity': humidity,
+            'pressure': pressure
         }
 
     except Exception as e:
         print("[Sensor Error] Failed to read data:", e)
         return None
+
+
+# -------------------------
+# SAVE TO CSV
+# -------------------------
+def save_to_csv(data):
+    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    with open(CSV_FILE, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([
+            timestamp,
+            data['temperature'],
+            data['humidity'],
+            data['pressure']
+        ])
 
 
 def main():
@@ -62,10 +85,11 @@ def main():
 
         if data:
             print(
-                f"Temp: {data['temperature']}°C | "
+                f"Temp: {data['temperature']}C | "
                 f"Humidity: {data['humidity']}% | "
                 f"Pressure: {data['pressure']} hPa"
             )
+            save_to_csv(data)
 
         time.sleep(2)
 
