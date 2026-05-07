@@ -196,9 +196,7 @@ async function fetchSensorData() {
 
         if (data.error) return;
 
-        document.getElementById('temperature').innerText = data.temperature + ' °C';
-        document.getElementById('humidity').innerText = data.humidity + ' %';
-        document.getElementById('pressure').innerText = data.pressure + ' hPa';
+        // Sensor data runs in background but doesn't update cards anymore
 
     } catch (error) {
         console.error('Sensor fetch failed:', error);
@@ -240,11 +238,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const mainIcon = document.getElementById('weather_icon');
         if (mainIcon) mainIcon.src = getWeatherIcon(city.status);
 
+        // Update bottom cards with city data
+        document.getElementById('temperature').innerText = city.temp;
+        document.getElementById('humidity').innerText = city.humidity + ' %';
+        document.getElementById('pressure').innerText = city.pressure + ' hPa';
+
         currentCityName = city.name;
         updateSaveBtn(city.name);
     }
 
-    // Save button toggle
     saveBtn.onclick = function () {
         if (isCitySaved(currentCityName)) {
             unsaveCity(currentCityName);
@@ -254,7 +256,6 @@ document.addEventListener('DOMContentLoaded', function () {
         updateSaveBtn(currentCityName);
     };
 
-    // Load London on startup
     fetchCityWeather('London').then(data => {
         if (data) updateWeather(data);
     });
@@ -274,7 +275,6 @@ document.addEventListener('DOMContentLoaded', function () {
         showCategories();
     };
 
-    // Back button
     backBtn.onclick = function () {
         showCategories();
     };
@@ -294,7 +294,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 section.style.display = 'none';
             });
 
-            // Show back button
             backBtn.style.display = 'inline-block';
 
             const cities = cityGroups[group];
@@ -329,7 +328,6 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     });
 
-    // Weather button - refresh to London
     weatherBtn.onclick = async function (e) {
         e.preventDefault();
         const cityData = await fetchCityWeather('London');
